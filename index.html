@@ -85,8 +85,8 @@
   .band.cream{background:var(--cream);color:var(--ink)}
   .band.dark{color:var(--on-dark);
     background:
-      radial-gradient(120% 55% at 50% -8%, rgba(48,55,70,.42), transparent 60%),
-      radial-gradient(120% 50% at 50% 108%, rgba(34,40,54,.36), transparent 58%),
+      radial-gradient(75% 60% at 12% 6%, rgba(64,74,98,.60), transparent 55%),
+      radial-gradient(70% 65% at 100% 100%, rgba(30,56,64,.5), transparent 55%),
       #040506;}
   .snap{min-height:100vh;min-height:100svh;display:flex;align-items:center;scroll-snap-align:start}
   .snap>.wrap{width:100%}
@@ -122,11 +122,10 @@
   .cards-intro{margin-bottom:clamp(28px,4vw,44px)}
   .cards-intro .eyebrow{color:var(--ink)}
   .cards-intro h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,3.6vw,3rem);line-height:1.06;margin-top:18px;color:var(--ink)}
-  .video-intro{margin-bottom:clamp(26px,3.5vw,42px);max-width:720px}
-  .video-intro .eyebrow{color:var(--gold)}
-  .video-intro h2{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,3.6vw,3rem);line-height:1.06;margin-top:16px;color:var(--paper)}
-  .video-intro .video-sub{color:var(--on-dark-soft);font-size:14.5px;margin-top:14px}
-  .featured-video{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000;box-shadow:0 40px 90px -40px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.08)}
+  .featured-cap{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:clamp(16px,2vw,22px) 0 clamp(34px,4.5vw,52px)}
+  .featured-cap .eyebrow{color:var(--gold)}
+  .featured-cap span.t{font-family:var(--serif);font-size:clamp(1.15rem,1.6vw,1.45rem);color:var(--ink);line-height:1.2}
+  .featured-video{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000;box-shadow:0 34px 80px -34px rgba(0,0,0,.55);border:1px solid rgba(20,20,22,.14)}
   .featured-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .fv-facade{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;cursor:pointer;background:#000;display:block}
   .fv-facade img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) sepia(.12) contrast(1.03) brightness(.72)}
@@ -241,37 +240,6 @@
   </div>
 </section>
 
-<!-- ==================== FEATURED VIDEO ==================== -->
-<section class="band dark" id="watch">
-  <div class="wrap">
-    <div class="video-intro">
-      <span class="eyebrow">Featured Video</span>
-      <h2>Breaking free from the alpha trap.</h2>
-      <p class="video-sub">Dave on Mark Bell&rsquo;s Power Project.</p>
-    </div>
-    <div class="featured-video">
-      <button class="fv-facade" type="button" id="fvPlay" aria-label="Play video">
-        <img src="assets/images/media/Mark_Bells_power_project_thumb.jpg" alt="Mark Bell&rsquo;s Power Project" loading="lazy" />
-        <span class="fv-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-      </button>
-    </div>
-  </div>
-</section>
-<script>
-  (function () {
-    var b = document.getElementById('fvPlay'); if (!b) return;
-    b.addEventListener('click', function () {
-      var f = document.createElement('iframe');
-      f.src = 'https://www.youtube-nocookie.com/embed/xHPLsAemqk4?rel=0&autoplay=1';
-      f.title = 'Mark Bell’s Power Project — Dave Rossi';
-      f.allow = 'autoplay; encrypted-media; picture-in-picture; web-share';
-      f.setAttribute('allowfullscreen', '');
-      f.referrerPolicy = 'strict-origin-when-cross-origin';
-      b.replaceWith(f);
-    });
-  })();
-</script>
-
 <!-- ==================== THE OMEGA PATH ==================== -->
 <section class="band cream snap" id="philosophy">
   <div class="wrap path-grid">
@@ -334,7 +302,7 @@
       <a href="#books" class="ulink">Explore the Books</a>
     </div>
     <article class="book">
-      <div class="cover"><img src="assets/images/home/alphas-book-1.png" alt="Alphas Die Early book cover" /></div>
+      <div class="cover"><img src="assets/images/home/alphas-book-1-cut.png" alt="Alphas Die Early book cover" /></div>
       <div>
         <h3>Alphas<br />Die Early</h3>
         <p>Why the world doesn&rsquo;t need more Alphas, and how Omega males lead the future.</p>
@@ -342,7 +310,7 @@
       </div>
     </article>
     <article class="book">
-      <div class="cover"><img src="assets/images/home/imperative-book-1.png" alt="The Imperative Habit book cover" /></div>
+      <div class="cover"><img src="assets/images/home/imperative-book-1-cut.png" alt="The Imperative Habit book cover" /></div>
       <div>
         <h3>The<br />Imperative Habit</h3>
         <p>In this book you learn how to shed old beliefs and make new ones.</p>
@@ -358,6 +326,16 @@
     <div class="cards-intro">
       <span class="eyebrow">The Library</span>
       <h2>Articles, podcasts &amp; videos.</h2>
+    </div>
+    <div class="featured-video">
+      <button class="fv-facade" type="button" id="fvPlay" aria-label="Play video">
+        <img src="assets/images/media/Mark_Bells_power_project_thumb.jpg" alt="Mark Bell&rsquo;s Power Project" loading="lazy" />
+        <span class="fv-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
+    </div>
+    <div class="featured-cap">
+      <span class="eyebrow">Featured Video</span>
+      <span class="t">Breaking free from the alpha trap &mdash; on Mark Bell&rsquo;s Power Project.</span>
     </div>
     <div class="cards">
       <article class="card" id="articles">
@@ -381,6 +359,21 @@
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    var b = document.getElementById('fvPlay'); if (!b) return;
+    b.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/xHPLsAemqk4?rel=0&autoplay=1';
+      f.title = 'Mark Bell’s Power Project — Dave Rossi';
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; web-share';
+      f.setAttribute('allowfullscreen', '');
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      b.replaceWith(f);
+    });
+  })();
+</script>
 
 <!-- ==================== NEWSLETTER ==================== -->
 <section class="news-band" id="newsletter">
