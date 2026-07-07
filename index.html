@@ -44,7 +44,7 @@
   /* ============================================================
      FRAMEWORK HEADER (matches the project upload)
      ============================================================ */
-  header.site-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,6,7,.82);border-bottom:1px solid rgba(255,255,255,.16);backdrop-filter:blur(12px)}
+  header.site-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,6,7,.82);backdrop-filter:blur(12px)}
   .nav{display:flex;align-items:center;gap:24px;height:76px}
   .brand{display:flex;align-items:center}
   .brand img{width:150px;height:auto;display:block}
@@ -110,6 +110,7 @@
   .book{display:grid;grid-template-columns:190px 1fr;gap:30px;align-items:center}
   .book .cover{aspect-ratio:2/3;position:relative;display:flex;align-items:center;justify-content:center;background:transparent}
   .book .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+  .book:last-child .cover img{transform:scale(1.33)}
   .book h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,2.4vw,1.95rem);line-height:1.08;color:var(--paper);margin-bottom:16px}
   .book p{color:var(--on-dark-soft);font-size:13.5px;line-height:1.6;margin-bottom:20px;max-width:26ch}
   .book .ulink{color:var(--on-dark)}
@@ -316,19 +317,19 @@
         <img src="assets/images/media/young_upstarts_thumb.jpg" alt="Latest article" />
         <span class="eyebrow">Articles</span>
         <h3>Thoughts on life, leadership, and becoming whole.</h3>
-        <a href="public/media/index.html#articles" class="ulink">Read the Latest</a>
+        <a href="public/media/?type=articles" class="ulink">Read the Latest</a>
       </article>
       <article class="card" id="podcasts">
         <img src="assets/images/media/Street_cop_podcast_thumb.jpg" alt="Latest podcast" />
         <span class="eyebrow">Podcasts</span>
         <h3>Conversations that actually matter.</h3>
-        <a href="public/media/index.html#podcasts" class="ulink">Listen Now</a>
+        <a href="public/media/?type=podcasts" class="ulink">Listen Now</a>
       </article>
       <article class="card" id="videos">
         <img src="assets/images/media/Mark_Bells_power_project_thumb.jpg" alt="Latest video" />
         <span class="eyebrow">Videos</span>
         <h3>Ideas brought to life on screen.</h3>
-        <a href="public/media/index.html#videos" class="ulink">Watch Now</a>
+        <a href="public/media/?type=videos" class="ulink">Watch Now</a>
       </article>
     </div>
   </div>
