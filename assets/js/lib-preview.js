@@ -1,0 +1,61 @@
+/* Library preview — shared data + renderer for the 3 look options.
+   (Temporary exploration helper; folds into the media page + override.js once a look is chosen.) */
+(function () {
+  const mediaData = {
+    items: [
+      { type: "Articles", name: "Young upstarts", description: "Six practical strategies to escape performance pressure, lead authentically, and prevent burnout.", thumb: "young_upstarts_thumb.jpg", link: "https://www.youngupstarts.com/2026/05/22/six-steps-to-break-the-performance-trap-and-lead-without-burning-out/", tags: ["Articles","Burnout","Leadership"] },
+      { type: "Articles", name: "Best ever you", description: "Redefining strength: vulnerability, self-awareness, and conscious leadership over burnout-driven achievement.", thumb: "Best_ever_you_thumb.jpg", link: "https://www.besteveryou.com/post/alphas-die-early-dave-rossi-on-redefining-strength-vulnerability-and-what-it-means-to-be-a-man", tags: ["Articles","Masculinity","Resilience"] },
+      { type: "Articles", name: "CEO World Magazine", description: "How performance-driven leadership fuels stress, burnout, and identity instability over time.", thumb: "CEO_World_magazine1_thumb.png", link: "https://ceoworld.biz/2026/03/28/is-your-leadership-style-killing-you/", tags: ["Articles","Leadership","Burnout"] },
+      { type: "Articles", name: "CEO World Magazine", description: "Why outdated masculinity pressures leave young men disconnected and unprepared for modern life.", thumb: "CEO_World_magazine2_thumb.png", link: "https://ceoworld.biz/2026/03/07/the-real-reason-young-men-are-failing-and-why-ceos-should-care/", tags: ["Articles","Masculinity","Leadership"] },
+      { type: "Articles", name: "Mantelligence", description: "The hidden crisis facing young men and the cost to future leadership.", thumb: "Mantelligene_thumb.jpg", link: "https://mantelligence.com/alphas-die-early-dave-rossi-omega-man-book/", tags: ["Articles","Authenticity","Mastery"] },
+      { type: "Articles", name: "Inc", description: "How masculinity, wellness, and performance culture are converging in the mainstream.", thumb: "inc_thumb.jpg", link: "https://www.inc.com/sam-blum/testosterone-is-the-red-pilled-elixir-of-the-manosphere-now-companies-are-eager-to-bring-it-mainstream/91288140", tags: ["Articles","Masculinity","Men’s Health"] },
+      { type: "Articles", name: "CEO World Magazine", description: "Why authentic leadership matters more than ever in an age of uncertainty.", thumb: "CEO_World_magazine3_thumb.jpg", link: "https://ceoworld.biz/2026/01/24/leadership-has-never-been-more-confusing-and-thats-why-authenticity-matters-now/", tags: ["Articles","Authenticity","Integrity"] },
+      { type: "Articles", name: "The Tonic", description: "Why alpha-male culture is fueling a silent health crisis among modern men.", thumb: "The_Tonic_thumb.jpg", link: "https://thetonic.ca/articles/health-wellness/2025/12/15/why-alpha-male-culture-is-destroying-mens-health/", tags: ["Articles","Wellbeing","Men’s Health"] },
+      { type: "Articles", name: "CEO World Magazine", description: "What Odysseus and Warren Buffett teach us about a different kind of success.", thumb: "CEO_World_magazine4_thumb.jpg", link: "https://ceoworld.biz/2026/01/11/odysseus-warren-buffett-and-the-omega-path/", tags: ["Articles","Self-Mastery","Leadership"] },
+      { type: "Podcasts", name: "The Jeff Macolino Podcast", description: "Authentic leadership, personal growth, and redefining success beyond achievement.", thumb: "The_Jeff Macolino_Podcast_thumb.jpg", link: "https://open.spotify.com/episode/5QXiIGAKWPG2hARXF2iKLy", tags: ["Podcasts","Authenticity","Masculinity"] },
+      { type: "Podcasts", name: "Street Cop Podcast", description: "The comeback mindset: turning adversity into growth, resilience, and success.", thumb: "Street_cop_podcast_thumb.jpg", link: "https://podcasts.apple.com/za/podcast/episode-1022-the-comeback-mindset-turning-adversity/id1538474515?i=1000762073307", tags: ["Podcasts","Mastery","Adversity"] },
+      { type: "Podcasts", name: "Donna Seebo Show", description: "How alpha-male culture is failing modern men — and a healthier path forward.", thumb: "Donna_Seebo_Show_thumb.jpg", link: "https://onlinepresskit247.com/upload/daverossi/donna-seebo-show-3-27-26-1775045486.mp3", tags: ["Podcasts","Authenticity","Mastery"] },
+      { type: "Podcasts", name: "The Resiliency Podcast", description: "Do alphas really die early? Challenging the high-performance mindset.", thumb: "The_resiliency podcast_thumb.jpg", link: "https://open.spotify.com/episode/5q1rYnO6DFw2KTNle6rM9k", tags: ["Podcasts","Mastery","Leadership"] },
+      { type: "Videos", name: "Mark Bell’s Power Project", description: "Breaking free from the alpha trap: redefining success, strength, and fulfillment.", thumb: "Mark_Bells_power_project_thumb.jpg", link: "https://www.youtube.com/watch?v=xHPLsAemqk4", tags: ["Videos","Men’s Health","Masculinity"] },
+      { type: "Videos", name: "Ask Faleskinni", description: "Why high achievement alone won’t fulfill you: the hidden cost of the alpha mindset.", thumb: "Ask_Faleskinni_thumb.jpg", link: "https://www.youtube.com/watch?v=6sMOsYYmPzM", tags: ["Videos","Crisis","Consciousness"] },
+      { type: "Videos", name: "The Courage Network", description: "The alpha myth: why vulnerability, purpose, and authenticity beat dominance.", thumb: "The_courage_network_Voices_of_change_thumb.jpg", link: "https://www.youtube.com/watch?v=FZ31CZb4rfE", tags: ["Videos","Authenticity","Mastery"] },
+      { type: "Videos", name: "B.Rad Podcast", description: "Beyond the alpha male: a new blueprint for strength, leadership, and meaning.", thumb: "B.Rad_Podcast_thumb.jpg", link: "https://www.youtube.com/watch?v=iTkPCcOhEZg", tags: ["Videos","Resilience","Mastery"] },
+      { type: "Videos", name: "The Love Doc Podcast", description: "Why the pursuit of status may be sabotaging your health and happiness.", thumb: "The_Love_Doc podcast_thumb.jpg", link: "https://www.youtube.com/watch?v=j_BQ59MtjfA", tags: ["Videos","Resilience","Mastery"] }
+    ],
+    tags: ["Articles","Podcasts","Videos","Burnout","Leadership","Masculinity","Resilience","Authenticity","Mastery","Men’s Health","Integrity","Wellbeing","Self-Mastery","Adversity","Crisis","Consciousness"]
+  };
+  const BASE = "../../assets/images/media/";
+  const slug = s => String(s || "").trim().toLowerCase().replace(/[’']/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+  function card(item) {
+    const go = item.type === "Articles" ? "Read" : item.type === "Podcasts" ? "Listen" : "Watch";
+    const play = item.type === "Videos" ? '<span class="lib-play"><i class="bi bi-play-fill"></i></span>' : (item.type === "Podcasts" ? '<span class="lib-play"><i class="bi bi-headphones"></i></span>' : "");
+    return `<a class="lib-card" data-tags="${(item.tags || []).map(slug).join(" ")}" href="${esc(item.link)}" target="_blank" rel="noopener">
+      <div class="lib-thumb"><img src="${BASE}${esc(item.thumb)}" alt="${esc(item.name)}" loading="lazy">${play}</div>
+      <span class="lib-type">${esc(item.type)}</span>
+      <h3>${esc(item.name)}</h3>
+      <p>${esc(item.description)}</p>
+      <span class="lib-go">${go} <i class="bi bi-arrow-right"></i></span>
+    </a>`;
+  }
+
+  window.renderLibrary = function (gridSel, filterSel) {
+    const grid = document.querySelector(gridSel), filt = document.querySelector(filterSel);
+    if (!grid) return;
+    grid.innerHTML = mediaData.items.map(card).join("");
+    if (filt) {
+      const tags = ["All"].concat(mediaData.tags);
+      filt.innerHTML = tags.map((t, i) => `<button type="button" class="lib-filter${i === 0 ? " is-active" : ""}" data-f="${t === "All" ? "all" : slug(t)}">${esc(t)}</button>`).join("");
+      filt.addEventListener("click", e => {
+        const b = e.target.closest(".lib-filter"); if (!b) return;
+        filt.querySelectorAll(".lib-filter").forEach(x => x.classList.remove("is-active"));
+        b.classList.add("is-active");
+        const f = b.dataset.f;
+        grid.querySelectorAll(".lib-card").forEach(c => {
+          c.style.display = (f === "all" || (" " + c.dataset.tags + " ").indexOf(" " + f + " ") > -1) ? "" : "none";
+        });
+      });
+    }
+  };
+})();
