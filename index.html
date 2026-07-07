@@ -50,7 +50,7 @@
   .brand img{width:150px;height:auto;display:block}
   .nav-links{display:flex;align-items:center;justify-content:center;gap:clamp(14px,2.2vw,30px);flex:1}
   .nav-links a{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.88);position:relative;padding:4px 0;transition:color .3s var(--ease)}
-  .nav-links a:hover{color:var(--gold)}
+  .nav-links a:hover,.nav-links a.active{color:var(--gold)}
   .nav-cta{display:inline-flex;align-items:center;justify-content:center;min-width:170px;font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;padding:14px 20px;border:1px solid var(--line-dark);color:var(--paper);transition:all .35s var(--ease);white-space:nowrap}
   .nav-cta:hover{border-color:var(--gold);color:var(--gold)}
   .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:10px;margin:-10px}
@@ -183,7 +183,7 @@
   <div class="wrap nav">
     <a class="brand" href="index.html" aria-label="Dave Rossi Global"><img src="assets/img/logo-cropped-2.png" alt="Dave Rossi Global" /></a>
     <nav class="nav-links">
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="public/about/">About</a>
       <a href="public/media/">Library</a>
       <a href="public/contact/">Contact</a>
@@ -194,7 +194,7 @@
 </header>
 
 <div class="drawer" id="drawer">
-  <a href="index.html">Home</a>
+  <a href="index.html" class="active">Home</a>
   <a href="public/about/">About</a>
   <a href="public/media/">Library</a>
   <a href="public/contact/">Contact</a>

@@ -43,7 +43,7 @@
   .brand img{width:150px;height:auto;display:block}
   .nav-links{display:flex;align-items:center;justify-content:center;gap:clamp(14px,2.2vw,30px);flex:1}
   .nav-links a{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.88);position:relative;padding:4px 0;transition:color .3s var(--ease)}
-  .nav-links a:hover{color:var(--gold)}
+  .nav-links a:hover,.nav-links a.active{color:var(--gold)}
   .nav-cta{display:inline-flex;align-items:center;justify-content:center;min-width:170px;font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;padding:14px 20px;border:1px solid var(--line-dark);color:var(--paper);transition:all .35s var(--ease);white-space:nowrap}
   .nav-cta:hover{border-color:var(--gold);color:var(--gold)}
   .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:10px;margin:-10px}
@@ -91,9 +91,11 @@
   .story-body p.lead{color:var(--ink);font-family:var(--serif);font-weight:500;font-size:clamp(1.15rem,1.7vw,1.35rem);line-height:1.5}
   .story-body p:last-child{margin-bottom:0}
 
-  /* QUOTE */
-  .quote-band{background:var(--dark);color:var(--paper);text-align:center}
-  .quote-band .wrap{max-width:860px}
+  /* QUOTE — parallax image behind, taller band */
+  .quote-band{position:relative;color:var(--paper);text-align:center;
+    background:linear-gradient(rgba(12,12,13,.72),rgba(12,12,13,.72)),url("../../assets/images/home/slider_Main_New.jpg") center/cover no-repeat fixed;
+    padding-block:clamp(120px,18vw,220px)}
+  .quote-band .wrap{max-width:860px;position:relative;z-index:1}
   .quote-band blockquote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.28}
   .quote-band cite{display:block;margin-top:22px;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
 
@@ -150,6 +152,7 @@
     .pgrid{grid-template-columns:1fr;gap:24px}
     .books-grid{grid-template-columns:1fr}
     .news{grid-template-columns:1fr;gap:20px}
+    .quote-band{background-attachment:scroll;padding-block:clamp(90px,22vw,150px)}
   }
   @media (max-width:560px){
     .cred .sep{display:none}.cred .wrap{gap:18px 26px}
@@ -166,7 +169,7 @@
     <a class="brand" href="../../index.html" aria-label="Dave Rossi Global"><img src="../../assets/img/logo-cropped-2.png" alt="Dave Rossi Global" /></a>
     <nav class="nav-links">
       <a href="../../index.html">Home</a>
-      <a href="../../public/about/">About</a>
+      <a href="../../public/about/" class="active">About</a>
       <a href="../../public/media/">Library</a>
       <a href="../../public/contact/">Contact</a>
     </nav>
@@ -176,7 +179,7 @@
 </header>
 <div class="drawer" id="drawer">
   <a href="../../index.html">Home</a>
-  <a href="../../public/about/">About</a>
+  <a href="../../public/about/" class="active">About</a>
   <a href="../../public/media/">Library</a>
   <a href="../../public/contact/">Contact</a>
   <a href="../../index.html#newsletter" class="nav-cta">Join the Journey</a>
