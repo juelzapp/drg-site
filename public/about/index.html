@@ -81,7 +81,11 @@
   .band{padding-block:var(--band-y)}
   .band.cream{background:var(--cream);color:var(--ink)}
   .band.cream2{background:var(--cream-2);color:var(--ink)}
-  .band.dark{background:#040506;color:var(--on-dark)}
+  .band.dark{color:var(--on-dark);
+    background:
+      radial-gradient(120% 55% at 50% -8%, rgba(48,55,70,.42), transparent 60%),
+      radial-gradient(120% 50% at 50% 108%, rgba(34,40,54,.36), transparent 58%),
+      #040506;}
 
   /* STORY */
   .story{display:grid;grid-template-columns:0.7fr 1.3fr;gap:clamp(32px,5vw,72px);align-items:start}
