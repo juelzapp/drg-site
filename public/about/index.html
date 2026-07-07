@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About | DaveRossiGlobal</title>
+<meta name="description" content="About Dave Rossi — bestselling author, speaker, and founder of the Omega philosophy. From survival to sovereignty." />
+<link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --dark:#0E0E0F;--dark-2:#0B0B0C;--cream:#ECE6D9;--cream-2:#F2EDE3;--cream-panel:#E3DBC9;
+    --ink:#1A1712;--ink-soft:#565248;--paper:#F5F2EA;--on-dark:#ECE8E0;--on-dark-soft:#9C988D;
+    --gold:#C5A15C;--gold-soft:#D8BC86;
+    --line-cream:rgba(26,23,18,.18);--line-dark:rgba(255,255,255,.16);
+    --serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --wrap:1200px;--gutter:clamp(20px,5vw,56px);--band-y:clamp(52px,7vw,96px);--ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:76px}
+  body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;height:auto;display:block}
+  ::selection{background:var(--gold);color:#0E0E0F}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gutter)}
+
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:inline-block;padding-bottom:13px;position:relative}
+  .eyebrow::after{content:"";position:absolute;left:0;bottom:0;width:32px;height:1px;background:var(--gold)}
+  .ulink{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid currentColor;transition:color .3s var(--ease)}
+  .ulink:hover{color:var(--gold)}
+  .btn-gold{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:14px 26px;background:var(--gold);color:#0E0E0F;transition:all .35s var(--ease);white-space:nowrap}
+  .btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px)}
+
+  /* ============================================================
+     FRAMEWORK HEADER (matches the project upload)
+     ============================================================ */
+  header.site-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,6,7,.82);border-bottom:1px solid rgba(255,255,255,.16);backdrop-filter:blur(12px)}
+  .nav{display:flex;align-items:center;gap:24px;height:76px}
+  .brand{display:flex;align-items:center}
+  .brand img{width:150px;height:auto;display:block}
+  .nav-links{display:flex;align-items:center;justify-content:center;gap:clamp(14px,2.2vw,30px);flex:1}
+  .nav-links a{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.88);position:relative;padding:4px 0;transition:color .3s var(--ease)}
+  .nav-links a:hover{color:var(--gold)}
+  .nav-cta{display:inline-flex;align-items:center;justify-content:center;min-width:170px;font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;padding:14px 20px;border:1px solid var(--line-dark);color:var(--paper);transition:all .35s var(--ease);white-space:nowrap}
+  .nav-cta:hover{border-color:var(--gold);color:var(--gold)}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:10px;margin:-10px}
+  .burger span{width:24px;height:1.5px;background:var(--paper);transition:.3s var(--ease)}
+  .drawer{position:fixed;inset:0;z-index:99;background:rgba(5,6,7,.98);backdrop-filter:blur(8px);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
+  .drawer.open{opacity:1;visibility:visible}
+  .drawer a{font-family:var(--sans);font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark);padding:14px}
+  .drawer a:hover{color:var(--gold)}
+  .drawer .nav-cta{margin-top:18px}
+
+  /* HERO — Dave cut-out anchored bottom-left, text on the right */
+  .hero{position:relative;color:var(--paper);overflow:hidden;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-top:76px;
+    background-color:var(--dark);background-image:url("../../assets/images/about/dave-cutout.png");background-repeat:no-repeat;background-position:left bottom;background-size:auto 92%;background-attachment:fixed}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 80% 26%,rgba(197,161,92,.12),transparent 60%);pointer-events:none;z-index:0}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(14,14,15,.5) 56%,var(--dark) 82%);pointer-events:none;z-index:1}
+  .hero .wrap{position:relative;z-index:3;width:100%;display:flex;justify-content:flex-end}
+  .hero-copy{max-width:500px}
+  .hero-copy .eyebrow{color:var(--paper)}
+  .hero-copy h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,5.2vw,4rem);line-height:1;letter-spacing:.01em;margin:12px 0 8px}
+  .hero-copy .role{font-size:11.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+  .hero-rule{width:44px;height:1px;background:var(--gold);margin:24px 0 20px}
+  .hero-copy .tag{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.35;color:var(--paper);margin-bottom:18px}
+  .hero-copy p{color:var(--on-dark-soft);font-size:14.5px;line-height:1.8;max-width:48ch}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+
+  /* credibility strip */
+  .cred{background:var(--dark-2);border-top:1px solid var(--line-dark)}
+  .cred .wrap{display:flex;justify-content:center;align-items:center;gap:clamp(20px,4vw,60px);flex-wrap:wrap;padding-block:26px}
+  .cred .item{display:flex;align-items:baseline;gap:10px}
+  .cred .n{font-family:var(--serif);font-weight:500;color:var(--gold);font-size:1.7rem;line-height:1}
+  .cred .l{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-soft)}
+  .cred .sep{width:1px;height:26px;background:var(--line-dark)}
+
+  /* bands */
+  .band{padding-block:var(--band-y)}
+  .band.cream{background:var(--cream);color:var(--ink)}
+  .band.cream2{background:var(--cream-2);color:var(--ink)}
+  .band.dark{background:var(--dark);color:var(--on-dark)}
+
+  /* STORY */
+  .story{display:grid;grid-template-columns:0.7fr 1.3fr;gap:clamp(32px,5vw,72px);align-items:start}
+  .story .eyebrow{color:var(--ink)}
+  .story h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.08;margin-top:18px}
+  .story-body p{color:var(--ink-soft);font-size:15px;line-height:1.85;margin-bottom:18px;max-width:62ch}
+  .story-body p.lead{color:var(--ink);font-family:var(--serif);font-weight:500;font-size:clamp(1.15rem,1.7vw,1.35rem);line-height:1.5}
+  .story-body p:last-child{margin-bottom:0}
+
+  /* QUOTE */
+  .quote-band{background:var(--dark);color:var(--paper);text-align:center}
+  .quote-band .wrap{max-width:860px}
+  .quote-band blockquote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.28}
+  .quote-band cite{display:block;margin-top:22px;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+
+  /* PRINCIPLES */
+  .head{max-width:600px;margin-bottom:44px}
+  .head .eyebrow{color:var(--ink)}
+  .head h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.06;margin-top:18px}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(26px,3.5vw,48px)}
+  .p{border-top:1px solid var(--gold);padding-top:22px}
+  .p .num{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.3rem}
+  .p h3{font-family:var(--serif);font-weight:500;font-size:1.5rem;color:var(--ink);margin:8px 0 10px}
+  .p p{color:var(--ink-soft);font-size:14px;line-height:1.72}
+
+  /* BOOKS */
+  .head.on-dark .eyebrow{color:var(--on-dark)}
+  .head.on-dark h2{color:var(--paper)}
+  .books-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,52px)}
+  .book{display:grid;grid-template-columns:110px 1fr;gap:24px;align-items:center}
+  .book .cover{position:relative;aspect-ratio:2/3;border-radius:2px;overflow:hidden;background:linear-gradient(160deg,#232324,#0C0C0D);border:1px solid var(--line-dark);box-shadow:0 20px 45px -24px rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center}
+  .book .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .book h3{font-family:var(--serif);font-weight:500;font-size:1.6rem;color:var(--paper);margin-bottom:10px}
+  .book p{color:var(--on-dark-soft);font-size:13px;line-height:1.6;margin-bottom:16px}
+  .book .ulink{color:var(--on-dark)}
+
+  /* NEWSLETTER */
+  .news{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px);align-items:center}
+  .news h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.05;color:var(--ink)}
+  .news p{color:var(--ink-soft);font-size:14.5px;max-width:42ch;margin-bottom:22px}
+  .subscribe{display:flex;gap:10px;flex-wrap:wrap}
+  .subscribe input{flex:1;min-width:180px;background:#F5F1E8;border:1px solid var(--line-cream);color:var(--ink);padding:14px 18px;font-size:13px}
+  .subscribe input:focus{outline:0;border-color:var(--gold)}
+  .btn-solid{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:14px 28px;background:var(--ink);color:var(--paper);border:0;cursor:pointer}
+
+  /* ============================================================
+     FRAMEWORK FOOTER (matches the project upload)
+     ============================================================ */
+  footer.site-footer{background:var(--dark);color:var(--on-dark);padding-block:34px}
+  .foot{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .footer-logo{width:152px;height:auto}
+  .foot-links{display:flex;gap:34px}
+  .foot-links a{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--on-dark);transition:color .3s var(--ease)}
+  .foot-links a:hover{color:var(--gold)}
+  .socials{display:flex;gap:10px}
+  .socials a{width:42px;height:42px;border:1px solid var(--line-dark);display:flex;align-items:center;justify-content:center;color:var(--on-dark);transition:all .3s}
+  .socials a:hover{border-color:var(--gold);color:var(--gold)}
+
+  @media (max-width:900px){
+    .nav-links{display:none}header .nav-cta{display:none}.burger{display:flex}.nav{justify-content:space-between}
+    .hero{align-items:flex-start;padding-top:clamp(96px,14vw,120px);background-attachment:scroll;background-size:auto 54%}
+    .hero::after{background:linear-gradient(180deg,rgba(14,14,15,.6),rgba(14,14,15,0) 30%)}
+    .hero .wrap{display:block}
+    .hero-copy{text-align:left;max-width:none}
+    .story{grid-template-columns:1fr;gap:22px}
+    .pgrid{grid-template-columns:1fr;gap:24px}
+    .books-grid{grid-template-columns:1fr}
+    .news{grid-template-columns:1fr;gap:20px}
+  }
+  @media (max-width:560px){
+    .cred .sep{display:none}.cred .wrap{gap:18px 26px}
+    .book{grid-template-columns:88px 1fr;gap:16px}
+    .foot{flex-direction:column;text-align:center;gap:20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== FRAMEWORK HEADER ==================== -->
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="../../index.html" aria-label="Dave Rossi Global"><img src="../../assets/img/logo-cropped-2.png" alt="Dave Rossi Global" /></a>
+    <nav class="nav-links">
+      <a href="../../index.html#philosophy">Philosophy</a>
+      <a href="../../index.html#books">Books</a>
+      <a href="../../public/media/index.html#articles">Articles</a>
+      <a href="../../public/media/index.html#podcasts">Podcasts</a>
+      <a href="../../public/media/index.html#videos">Videos</a>
+      <a href="../../public/about/">About</a>
+    </nav>
+    <a href="../../index.html#newsletter" class="nav-cta">Join the Journey</a>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="drawer" id="drawer">
+  <a href="../../index.html#philosophy">Philosophy</a>
+  <a href="../../index.html#books">Books</a>
+  <a href="../../public/media/index.html#articles">Articles</a>
+  <a href="../../public/media/index.html#podcasts">Podcasts</a>
+  <a href="../../public/media/index.html#videos">Videos</a>
+  <a href="../../public/about/">About</a>
+  <a href="../../index.html#newsletter" class="nav-cta">Join the Journey</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">About the Author</span>
+      <h1>Dave Rossi</h1>
+      <div class="role">Author &middot; Speaker &middot; Founder of Omega</div>
+      <div class="hero-rule"></div>
+      <p class="tag">I spent twenty years performing a version of success that was quietly burying me.</p>
+      <div class="hero-actions">
+        <a href="../../index.html#books" class="btn-gold">Read the Books &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY -->
+<section class="cred">
+  <div class="wrap">
+    <div class="item"><span class="n">#1</span><span class="l">Amazon International Best Seller</span></div>
+    <div class="sep"></div>
+    <div class="item"><span class="n">100k+</span><span class="l">Readers Worldwide</span></div>
+    <div class="sep"></div>
+    <div class="item"><span class="n">30+</span><span class="l">Countries Reached</span></div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="band cream">
+  <div class="wrap story">
+    <div>
+      <span class="eyebrow">The Story</span>
+      <h2>From survival to sovereignty.</h2>
+    </div>
+    <div class="story-body">
+      <p class="lead">For most of my life I was winning at a game I never chose to play &mdash; achieving, armouring up, and slowly disappearing behind my own mask.</p>
+      <p>I had built the life that was supposed to feel like enough. It didn&rsquo;t. When the performance finally cracked, the questions underneath it couldn&rsquo;t be out-run, so I started writing &mdash; not for an audience, but to find my way back to something real.</p>
+      <p>Those private notes became Omega: a philosophy for men ready to stop surviving and start living from truth instead of image. What began as one man&rsquo;s reckoning now reaches readers in more than thirty countries &mdash; but the mission hasn&rsquo;t changed. I write to help you dig out the man who was there all along.</p>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="band quote-band">
+  <div class="wrap">
+    <blockquote>&ldquo;You are not broken. You are buried.&rdquo;</blockquote>
+    <cite>Dave Rossi</cite>
+  </div>
+</section>
+
+<!-- WHAT I BELIEVE -->
+<section class="band cream2">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">What I Believe</span>
+      <h2>The convictions the work is built on.</h2>
+    </div>
+    <div class="pgrid">
+      <div class="p"><div class="num">01</div><h3>Why Alphas die early</h3><p>The Alpha is always on &mdash; dominating, defending, proving. That relentless performance is a survival program run at full throttle, and it quietly burns a man out from the inside. He isn&rsquo;t beaten by a rival; he&rsquo;s worn down by a mask he&rsquo;s never allowed to set down.</p></div>
+      <div class="p"><div class="num">02</div><h3>The Omega leads from truth</h3><p>The Omega has no throne to guard and nothing to prove. His strength isn&rsquo;t the image he projects but the truth he&rsquo;s willing to face &mdash; in himself first, then the world. Secure without dominance, he leads by presence, and outlasts the men still fighting to look powerful.</p></div>
+      <div class="p"><div class="num">03</div><h3>You were never broken</h3><p>Every man is handed the Alpha script &mdash; armour up, compete, never show the wound. Becoming Omega adds nothing new; it unburies the man beneath the conditioning. What you&rsquo;ve been chasing was never lost. It was only covered over by everything you were told a man had to be.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section class="band dark">
+  <div class="wrap">
+    <div class="head on-dark">
+      <span class="eyebrow">The Books</span>
+      <h2>Ideas that challenge. Truth that transforms.</h2>
+    </div>
+    <div class="books-grid">
+      <article class="book">
+        <div class="cover"><img src="../../assets/images/home/alphas-book-1.png" alt="Alphas Die Early book cover" /></div>
+        <div><h3>Alphas Die Early</h3><p>Why the world doesn&rsquo;t need more Alphas, and how Omega males lead the future.</p><a href="https://www.amazon.com/Alphas-Die-Early-Mission-Women/dp/1923223771/" target="_blank" class="ulink">View Book</a></div>
+      </article>
+      <article class="book">
+        <div class="cover"><img src="../../assets/images/home/imperative-book-1.png" alt="The Imperative Habit book cover" /></div>
+        <div><h3>The Imperative Habit</h3><p>Learn how to shed the old beliefs that bury you &mdash; and build the ones that free you.</p><a href="https://www.amazon.com/Imperative-Habit-Non-Spiritual-Practices-Spiritual/dp/B0D5F71556/" target="_blank" class="ulink">View Book</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="band cream">
+  <div class="wrap news">
+    <h2>Join the journey<br />of becoming Omega.</h2>
+    <div>
+      <p>Weekly insights, reflections, and tools to help you live with clarity, purpose, and authentic power.</p>
+      <form class="subscribe" onsubmit="return false;">
+        <input type="email" placeholder="Enter your email" aria-label="Email address" required />
+        <button class="btn-solid" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FRAMEWORK FOOTER ==================== -->
+<footer class="site-footer">
+  <div class="wrap foot">
+    <a class="brand" href="../../index.html"><img src="../../assets/img/logo-cropped-2.png" alt="Dave Rossi Global" class="footer-logo" /></a>
+    <nav class="foot-links">
+      <a href="../../public/meet-dave/">Meet Dave</a>
+      <a href="../../public/press/">Press</a>
+      <a href="../../public/events/">Events</a>
+      <a href="../../public/contact/">Contact</a>
+    </nav>
+    <div class="socials">
+      <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3V9Z" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.75-2.05C20.4 8.65 21 10.9 21 13.6V21h-4v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.53 1.7-2.53 3.48V21H9V9Z"/></svg></a>
+      <a href="#" aria-label="X"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.3 8.3L23 22h-6.6l-5.2-6.8L5.3 22H2.1l7.8-8.9L1.7 2h6.8l4.7 6.2L18.9 2Z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var b=document.getElementById('burger'),d=document.getElementById('drawer');
+  b.addEventListener('click',function(){d.classList.toggle('open')});
+  d.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){d.classList.remove('open')})});
+</script>
+</body>
+</html>

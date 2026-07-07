@@ -1,1 +1,0 @@
-# Dave Rossi Omega site
