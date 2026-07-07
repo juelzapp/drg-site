@@ -81,7 +81,7 @@
   .band{padding-block:var(--band-y)}
   .band.cream{background:var(--cream);color:var(--ink)}
   .band.cream2{background:var(--cream-2);color:var(--ink)}
-  .band.dark{background:var(--dark);color:var(--on-dark)}
+  .band.dark{background:#040506;color:var(--on-dark)}
 
   /* STORY */
   .story{display:grid;grid-template-columns:0.7fr 1.3fr;gap:clamp(32px,5vw,72px);align-items:start}
@@ -114,8 +114,8 @@
   .head.on-dark h2{color:var(--paper)}
   .books-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,52px)}
   .book{display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:center}
-  .book .cover{position:relative;aspect-ratio:2/3;border-radius:2px;overflow:hidden;background:linear-gradient(160deg,#232324,#0C0C0D);box-shadow:0 20px 45px -24px rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center}
-  .book .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .book .cover{position:relative;aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;background:transparent}
+  .book .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
   .book h3{font-family:var(--serif);font-weight:500;font-size:1.6rem;color:var(--paper);margin-bottom:10px}
   .book p{color:var(--on-dark-soft);font-size:13px;line-height:1.6;margin-bottom:16px}
   .book .ulink{color:var(--on-dark)}

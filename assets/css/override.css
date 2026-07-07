@@ -119,8 +119,16 @@
    public/contact/index.html — Contact page
    Page-scoped only. Uses theme tokens; never edits theme.
    ========================================================= */
-#contact { padding: calc(76px + clamp(48px, 7vw, 92px)) 0 clamp(58px, 8vw, 110px); background: var(--paper); }
+.contact-hero { position: relative; min-height: clamp(240px, 34vh, 360px); display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 76px; color: var(--paper);
+  background: linear-gradient(rgba(12,12,13,.46), rgba(12,12,13,.64)), url("../images/home/slider_Main_New.jpg") center/cover no-repeat fixed; }
+.contact-hero .eyebrow { color: var(--paper); }
+.contact-hero .eyebrow::after { margin-left: auto; margin-right: auto; }
+.contact-hero h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(42px, 6vw, 72px); line-height: 1; letter-spacing: -.03em; margin-top: 12px; color: var(--paper); }
+@media (max-width: 768px) { .contact-hero { background-attachment: scroll; } }
+
+#contact { padding: clamp(46px, 6vw, 84px) 0 clamp(58px, 8vw, 110px); background: var(--paper); }
 #contact .contact-head { max-width: 640px; margin-bottom: clamp(40px, 5vw, 64px); }
+#contact .contact-lead { margin-bottom: clamp(30px, 4vw, 50px); }
 #contact .eyebrow { color: var(--ink); }
 #contact h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(42px, 6vw, 72px); line-height: .98; letter-spacing: -.03em; margin: 18px 0 20px; color: var(--ink); }
 #contact .contact-lead { max-width: 52ch; color: #565248; font-size: 16px; line-height: 1.7; }
