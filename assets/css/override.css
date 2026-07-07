@@ -144,3 +144,45 @@
   #contact .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   #contact .contact-info { padding-left: 0; }
 }
+
+/* =========================================================
+   public/media/index.html — Library page
+   Left filter rail (desktop) / dropdown (mobile), clean 3-across cards.
+   ========================================================= */
+.lib { background: var(--paper); padding: calc(76px + clamp(44px, 6vw, 80px)) 0 clamp(56px, 8vw, 100px); }
+.lib-top { margin-bottom: clamp(28px, 4vw, 44px); }
+.lib-top .eyebrow { color: var(--ink); }
+.lib-top h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(36px, 5vw, 56px); line-height: .98; letter-spacing: -.03em; margin-top: 14px; color: var(--ink); }
+.lib-layout { display: grid; grid-template-columns: 150px 1fr; gap: clamp(28px, 4vw, 56px); align-items: start; }
+.lib-filter-toggle { display: none; }
+.lib-filters { position: sticky; top: 96px; display: flex; flex-direction: column; gap: 5px; border-right: 1px solid rgba(92,82,70,.2); padding-right: 20px; }
+.lib-filter { background: none; border: 0; padding: 4px 0; text-align: left; font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: .05em; color: #8a8072; cursor: pointer; transition: color .2s; }
+.lib-filter:hover { color: var(--ink); }
+.lib-filter.is-active { color: var(--gold); }
+.lib-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(26px, 2.8vw, 44px) clamp(20px, 2vw, 30px); }
+.lib-card { display: block; color: inherit; text-decoration: none; }
+.lib-thumb { position: relative; aspect-ratio: 16/10; overflow: hidden; background: #e6dfd2; margin-bottom: 14px; }
+.lib-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.lib-card:hover .lib-thumb img { transform: scale(1.04); }
+.lib-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 46px; height: 46px; border-radius: 50%; background: rgba(14,14,15,.5); border: 1px solid rgba(255,255,255,.7); display: grid; place-items: center; color: #fff; font-size: 20px; }
+.lib-type { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.lib-card h3 { font-family: var(--serif); font-weight: 500; font-size: 21px; line-height: 1.14; color: var(--ink); margin: 8px 0; letter-spacing: -.01em; }
+.lib-card p { font-family: var(--sans); font-size: 13.5px !important; line-height: 1.55; color: #565248; margin: 0 0 12px; }
+.lib-go { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 8px; transition: color .2s, gap .2s; }
+.lib-card:hover .lib-go { color: var(--gold); gap: 12px; }
+@media (max-width: 991px) {
+  .lib-layout { grid-template-columns: 1fr; gap: 0; }
+  .lib-side { position: relative; margin-bottom: 26px; }
+  .lib-filter-toggle { display: flex; align-items: center; gap: 10px; width: 100%; background: #f7f2e9; border: 1px solid rgba(29,27,24,.16); padding: 14px 16px; font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); cursor: pointer; }
+  .lib-filter-toggle .lbl { color: #8a8072; }
+  .lib-filter-toggle .cur { color: var(--gold); margin-left: 2px; }
+  .lib-filter-toggle .bi { margin-left: auto; transition: transform .25s; }
+  .lib-filter-toggle[aria-expanded="true"] .bi { transform: rotate(180deg); }
+  .lib-filters { position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 20; display: none; flex-direction: column; gap: 0; background: #fff; border: 1px solid rgba(29,27,24,.16); box-shadow: 0 18px 40px rgba(0,0,0,.12); padding: 6px; max-height: 62vh; overflow: auto; }
+  .lib-filters.open { display: flex; }
+  .lib-filter { padding: 11px 12px; font-size: 13px; }
+  .lib-filter:hover { background: #f5f0e7; }
+  .lib-filter.is-active { color: var(--gold); background: #f5f0e7; }
+  .lib-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) { .lib-grid { grid-template-columns: 1fr; } }
