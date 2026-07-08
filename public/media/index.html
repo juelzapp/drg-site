@@ -95,6 +95,13 @@
 </footer>
 <a href="#top" class="scroll-top" id="scrollTop" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></a>
 
+<div class="lb" id="lightbox" aria-hidden="true">
+  <div class="lb-inner">
+    <button class="lb-close" id="lbClose" type="button" aria-label="Close video"><i class="bi bi-x-lg"></i></button>
+    <div class="lb-frame" id="lbFrame"></div>
+  </div>
+</div>
+
 <script>
   // ===== mediaData (source of truth — update from DRG-Media-grid-assets.xlsx) =====
   const mediaData = {
@@ -192,13 +199,6 @@
     if (btn) btn.click();
   })();
 </script>
-
-<div class="lb" id="lightbox" aria-hidden="true">
-  <div class="lb-inner">
-    <button class="lb-close" id="lbClose" type="button" aria-label="Close video"><i class="bi bi-x-lg"></i></button>
-    <div class="lb-frame" id="lbFrame"></div>
-  </div>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../assets/js/main.js"></script>
