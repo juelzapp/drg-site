@@ -24,7 +24,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="../../assets/css/style.css" rel="stylesheet">
-  <link href="../../assets/css/override.css?v=8" rel="stylesheet">
+  <link href="../../assets/css/override.css?v=9" rel="stylesheet">
 </head>
 <body id="top" class="library-page">
 <header class="site-header fixed-top">
@@ -123,11 +123,13 @@
   const BASE = "../../assets/images/media/";
   const slug = s => String(s || "").trim().toLowerCase().replace(/[’']/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
   const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const ytId = u => { const m = String(u || "").match(/[?&]v=([^&]+)|youtu\.be\/([^?&]+)|embed\/([^?&]+)/); return m ? (m[1] || m[2] || m[3]) : ""; };
 
   function card(item) {
     const go = item.type === "Articles" ? "Read" : item.type === "Podcasts" ? "Listen" : "Watch";
     const play = item.type === "Videos" ? '<span class="lib-play"><i class="bi bi-play-fill"></i></span>' : (item.type === "Podcasts" ? '<span class="lib-play"><i class="bi bi-headphones"></i></span>' : "");
-    return `<a class="lib-card" data-tags="${(item.tags || []).map(slug).join(" ")}" href="${esc(item.link)}" target="_blank" rel="noopener">
+    const yt = item.type === "Videos" ? ytId(item.link) : "";
+    return `<a class="lib-card" data-tags="${(item.tags || []).map(slug).join(" ")}"${yt ? ` data-yt="${esc(yt)}"` : ""} href="${esc(item.link)}" target="_blank" rel="noopener">
       <div class="lib-thumb"><img src="${BASE}${esc(item.thumb)}" alt="${esc(item.name)}" loading="lazy">${play}</div>
       <span class="lib-type">${esc(item.type)}</span>
       <h3>${esc(item.name)}</h3>
@@ -164,6 +166,24 @@
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
   });
 
+  // Video lightbox — open videos in a popup player instead of leaving the page
+  const lb = document.getElementById("lightbox");
+  const lbFrame = document.getElementById("lbFrame");
+  function openLb(id) {
+    lbFrame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?rel=0&autoplay=1" title="Video" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+    lb.classList.add("open"); lb.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden";
+  }
+  function closeLb() {
+    lb.classList.remove("open"); lb.setAttribute("aria-hidden", "true"); lbFrame.innerHTML = ""; document.body.style.overflow = "";
+  }
+  grid.addEventListener("click", function (e) {
+    const c = e.target.closest(".lib-card"); if (!c || !c.dataset.yt) return;
+    e.preventDefault(); openLb(c.dataset.yt);
+  });
+  document.getElementById("lbClose").addEventListener("click", closeLb);
+  lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && lb.classList.contains("open")) closeLb(); });
+
   // Pre-select a filter from ?type= (e.g. home cards linking to a category)
   (function () {
     const want = slug(new URLSearchParams(location.search).get("type") || "");
@@ -172,6 +192,13 @@
     if (btn) btn.click();
   })();
 </script>
+
+<div class="lb" id="lightbox" aria-hidden="true">
+  <div class="lb-inner">
+    <button class="lb-close" id="lbClose" type="button" aria-label="Close video"><i class="bi bi-x-lg"></i></button>
+    <div class="lb-frame" id="lbFrame"></div>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../assets/js/main.js"></script>
