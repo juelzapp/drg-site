@@ -181,6 +181,13 @@
   @media (max-width:760px){
     html{scroll-snap-type:none}
     .snap{min-height:0}
+    /* HERO (mobile): no parallax so Dave's photo shows; face clear at top, headline pushed to the bottom edge; drop the paragraph */
+    .hero{background:linear-gradient(180deg, rgba(12,12,13,.10) 0%, rgba(12,12,13,.28) 40%, rgba(12,12,13,.72) 76%, rgba(12,12,13,.93) 100%), #14150F url("assets/images/home/slider_Main_New2.jpg?v=3") right top/cover no-repeat;background-attachment:scroll;align-items:flex-end;padding-top:96px;padding-bottom:clamp(40px,11vw,80px)}
+    .hero-inner{max-width:none}
+    .hero p{display:none}
+    /* BOOKS (mobile): centred intro, books stacked underneath */
+    .books-grid{text-align:center}
+    .books-intro .ulink{margin-left:auto;margin-right:auto}
     .pillars{grid-template-columns:repeat(3,1fr);gap:32px 8px}
     .pillars::before{display:none}
     .cards{grid-template-columns:1fr;gap:16px}
@@ -189,7 +196,10 @@
   }
   @media (max-width:560px){
     .books-grid{grid-template-columns:1fr}
-    .book{grid-template-columns:120px 1fr;gap:22px}
+    /* each book: cover on top, copy below, centred */
+    .book{grid-template-columns:1fr;gap:14px;justify-items:center;max-width:360px;margin-left:auto;margin-right:auto}
+    .book .cover{width:160px}
+    .book p{margin-left:auto;margin-right:auto}
     .pillars{grid-template-columns:repeat(2,1fr)}
     .subscribe input{min-width:0}
   }
