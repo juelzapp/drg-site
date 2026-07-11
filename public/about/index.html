@@ -97,7 +97,7 @@
 
   /* QUOTE — parallax image behind, taller band */
   .quote-band{position:relative;color:var(--paper);text-align:center;
-    background:linear-gradient(90deg, rgba(12,12,13,.84) 0%, rgba(12,12,13,.68) 44%, rgba(12,12,13,.42) 72%, rgba(12,12,13,.3) 100%), url("../../assets/images/about/paralax.jpg") right center/cover no-repeat fixed;
+    background:linear-gradient(90deg, rgba(12,12,13,.84) 0%, rgba(12,12,13,.68) 44%, rgba(12,12,13,.42) 72%, rgba(12,12,13,.3) 100%), url("../../assets/images/about/paralax.jpg") right center/cover no-repeat scroll;
     padding-block:clamp(120px,18vw,220px)}
   .quote-band .wrap{max-width:860px;position:relative;z-index:1}
   .quote-band blockquote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.28}
@@ -318,6 +318,27 @@
   var b=document.getElementById('burger'),d=document.getElementById('drawer');
   b.addEventListener('click',function(){d.classList.toggle('open')});
   d.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){d.classList.remove('open')})});
+</script>
+<script>
+  (function () {
+    var els = [].slice.call(document.querySelectorAll('.quote-band, .contact-hero'));
+    if (!els.length || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    var AMP = 48, ticking = false;
+    function update() {
+      var vh = window.innerHeight;
+      for (var i = 0; i < els.length; i++) {
+        var el = els[i], r = el.getBoundingClientRect();
+        if (r.bottom < -100 || r.top > vh + 100) continue;
+        var off = (((r.top + r.height / 2) - vh / 2) / vh) * -AMP;
+        el.style.backgroundPositionY = 'calc(50% + ' + off.toFixed(1) + 'px)';
+      }
+      ticking = false;
+    }
+    function onScroll() { if (!ticking) { requestAnimationFrame(update); ticking = true; } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  })();
 </script>
 </body>
 </html>
