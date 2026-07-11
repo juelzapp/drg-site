@@ -56,7 +56,7 @@
 
   /* HERO — Dave cut-out anchored bottom-left, text on the right */
   .hero{position:relative;color:var(--paper);overflow:hidden;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-top:76px;
-    background-color:var(--dark);background-image:url("../../assets/images/about/dave-cutout.png");background-repeat:no-repeat;background-position:left bottom;background-size:auto 92%;background-attachment:fixed}
+    background-color:var(--dark);background-image:url("../../assets/images/about/drg_hero2.jpg");background-repeat:no-repeat;background-position:left center;background-size:cover;background-attachment:fixed}
   .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 80% 26%,rgba(197,161,92,.12),transparent 60%);pointer-events:none;z-index:0}
   .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(14,14,15,.5) 56%,var(--dark) 82%);pointer-events:none;z-index:1}
   .hero .wrap{position:relative;z-index:3;width:100%;display:flex;justify-content:flex-end}
@@ -149,8 +149,8 @@
 
   @media (max-width:900px){
     .nav-links{display:none}header .nav-cta{display:none}.burger{display:flex}.nav{justify-content:space-between}
-    .hero{align-items:flex-start;padding-top:clamp(96px,14vw,120px);background-attachment:scroll;background-size:auto 54%}
-    .hero::after{background:linear-gradient(180deg,rgba(14,14,15,.6),rgba(14,14,15,0) 30%)}
+    .hero{align-items:flex-end;padding-bottom:clamp(48px,10vw,80px);background-attachment:scroll;background-size:cover;background-position:center top}
+    .hero::after{background:linear-gradient(180deg,rgba(14,14,15,0) 30%,rgba(14,14,15,.55) 70%,var(--dark) 100%)}
     .hero .wrap{display:block}
     .hero-copy{text-align:left;max-width:none}
     .story{grid-template-columns:1fr;gap:22px}
