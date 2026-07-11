@@ -64,13 +64,12 @@
   /* ============================================================
      HERO (design)
      ============================================================ */
-  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-top:76px;
-    background:
+  .hero{position:relative;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-top:76px;background:#14150F}
+  .hero .px-layer{position:absolute;left:0;right:0;top:-30%;height:160%;z-index:0;background:url("assets/images/home/slider_Main_New2.jpg?v=3") right center/cover no-repeat;will-change:transform}
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
       linear-gradient(90deg, rgba(12,12,13,.94) 0%, rgba(12,12,13,.8) 34%, rgba(12,12,13,.42) 58%, rgba(12,12,13,.12) 80%, rgba(12,12,13,.04) 100%),
-      linear-gradient(0deg, rgba(12,12,13,.45), rgba(12,12,13,.18)),
-      #14150F url("assets/images/home/slider_Main_New2.jpg?v=3") right center/cover no-repeat;
-    background-attachment:scroll,scroll,fixed;}
-  .hero .wrap{width:100%}
+      linear-gradient(0deg, rgba(12,12,13,.45), rgba(12,12,13,.18));}
+  .hero .wrap{position:relative;z-index:2;width:100%}
   .hero-inner{max-width:620px}
   .hero h1{font-family:var(--serif);font-weight:300;color:var(--paper);font-size:clamp(1.1rem,2.3vw,1.78rem);line-height:1.5;letter-spacing:.004em}
   .hero .omega{display:block;font-style:italic;color:var(--gold);font-size:clamp(0.81rem,1.8vw,1.41rem);line-height:1.05;margin-top:.35em}
@@ -182,7 +181,9 @@
     html{scroll-snap-type:none}
     .snap{min-height:0}
     /* HERO (mobile): Dave peeks out on the right, text on the left, no parallax, headline pushed to the bottom */
-    .hero{background:linear-gradient(90deg, rgba(12,12,13,.93) 0%, rgba(12,12,13,.8) 34%, rgba(12,12,13,.46) 62%, rgba(12,12,13,.12) 100%), #14150F url("assets/images/home/slider_Main_New2.jpg?v=3") 85% top/cover no-repeat;background-attachment:scroll;align-items:flex-end;padding-top:96px;padding-bottom:clamp(22px,6vw,44px)}
+    .hero{align-items:flex-end;padding-top:96px;padding-bottom:clamp(22px,6vw,44px)}
+    .hero .px-layer{background-position:85% top}
+    .hero::after{background:linear-gradient(90deg, rgba(12,12,13,.93) 0%, rgba(12,12,13,.8) 34%, rgba(12,12,13,.46) 62%, rgba(12,12,13,.12) 100%)}
     .hero-inner{max-width:none}
     .hero p{display:none}
     .hero .ulink{display:none}
@@ -237,6 +238,7 @@
 
 <!-- ==================== HERO ==================== -->
 <section class="hero">
+  <div class="px-layer" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-inner">
       <h1>
@@ -430,6 +432,27 @@
   var drawer = document.getElementById('drawer');
   burger.addEventListener('click', function(){ drawer.classList.toggle('open'); });
   drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ drawer.classList.remove('open'); }); });
+</script>
+<script>
+  (function () {
+    var layers = [].slice.call(document.querySelectorAll('.px-layer'));
+    if (!layers.length || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    var SPEED = 0.28, ticking = false;
+    function update() {
+      var vh = window.innerHeight;
+      for (var i = 0; i < layers.length; i++) {
+        var l = layers[i], sec = l.parentElement, r = sec.getBoundingClientRect();
+        if (r.bottom < -50 || r.top > vh + 50) continue;
+        var shift = (vh / 2 - (r.top + r.height / 2)) * SPEED;
+        l.style.transform = 'translate3d(0,' + shift.toFixed(1) + 'px,0)';
+      }
+      ticking = false;
+    }
+    function onScroll() { if (!ticking) { requestAnimationFrame(update); ticking = true; } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  })();
 </script>
 </body>
 </html>
