@@ -189,9 +189,12 @@
     .hero .ulink{display:none}
     .hero h1{font-size:1.48rem;line-height:1.45}
     .hero .omega{font-size:1.54rem;margin-top:.15em}
-    /* BOOKS (mobile): centred intro, books stacked underneath */
-    .books-grid{text-align:center}
-    .books-intro .ulink{margin-left:auto;margin-right:auto}
+    /* Omega-path quote (mobile): centred */
+    .path-quote{text-align:center}
+    .path-quote blockquote{max-width:none;margin-left:auto;margin-right:auto}
+    /* BOOKS (mobile): centre only the heading block; drop Explore link */
+    .books-intro{text-align:center}
+    .books-intro .ulink{display:none}
     .pillars{grid-template-columns:repeat(3,1fr);gap:32px 8px}
     .pillars::before{display:none}
     .cards{grid-template-columns:1fr;gap:16px}
@@ -200,10 +203,8 @@
   }
   @media (max-width:560px){
     .books-grid{grid-template-columns:1fr}
-    /* each book: cover on top, copy below, centred */
-    .book{grid-template-columns:1fr;gap:14px;justify-items:center;max-width:360px;margin-left:auto;margin-right:auto}
-    .book .cover{width:160px}
-    .book p{margin-left:auto;margin-right:auto}
+    /* each book: image left, copy + button right */
+    .book{grid-template-columns:110px 1fr;gap:18px;align-items:center;text-align:left}
     .pillars{grid-template-columns:repeat(2,1fr)}
     .subscribe input{min-width:0}
   }
