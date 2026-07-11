@@ -121,7 +121,8 @@
    ========================================================= */
 .site-header { border-bottom: 0 !important; }
 .contact-hero { position: relative; min-height: clamp(440px, 58vh, 620px); display: flex; flex-direction: column; justify-content: flex-end; text-align: left; padding: 76px 0 clamp(40px, 5vw, 64px); color: var(--paper);
-  background: linear-gradient(rgba(12,12,13,.30), rgba(12,12,13,.58)), url("../images/home/slider_Main_New.jpg") 50% 74%/cover no-repeat scroll; }
+  background: linear-gradient(90deg, rgba(12,12,13,.86) 0%, rgba(12,12,13,.64) 46%, rgba(12,12,13,.32) 78%, rgba(12,12,13,.2) 100%), url("../images/about/paralax.jpg") right center/cover no-repeat fixed; }
+@media (max-width: 991px){ .site-header .nav-cta { display: none; } }
 .contact-hero .eyebrow { color: var(--paper); }
 .contact-hero h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 4.4vw, 54px); line-height: 1; letter-spacing: -.03em; margin-top: 14px; color: var(--paper); }
 @media (max-width: 768px) { .contact-hero { background-attachment: scroll; min-height: clamp(340px, 52vh, 460px); } }

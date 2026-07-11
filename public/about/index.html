@@ -153,17 +153,18 @@
     .hero::after{background:linear-gradient(270deg,rgba(14,14,15,.9) 0%,rgba(14,14,15,.62) 38%,rgba(14,14,15,.15) 72%,transparent 100%)}
     .hero .wrap{display:block}
     .hero-copy{text-align:right;max-width:240px;margin-left:auto;margin-right:0}
-    .hero-copy h1{font-size:2.3rem}
-    .hero-copy .role{font-size:9px;letter-spacing:.12em}
-    .hero-copy .tag{font-size:1.1rem}
+    .hero-copy .eyebrow{display:none}
+    .hero-rule{display:none}
+    .hero-copy h1{font-size:1.85rem;margin-bottom:6px}
+    .hero-copy .role{font-size:8.5px;letter-spacing:.1em}
+    .hero-copy .tag{font-size:1.02rem;margin-top:14px}
     .hero-copy p{margin-left:auto}
-    .hero-copy .eyebrow::after{left:auto;right:0}
     .hero-actions{display:none}
     .story{grid-template-columns:1fr;gap:22px}
     .pgrid{grid-template-columns:1fr;gap:24px}
     .books-grid{grid-template-columns:1fr}
     .news{grid-template-columns:1fr;gap:20px}
-    .quote-band{padding-block:clamp(90px,22vw,150px)}
+    .quote-band{background-attachment:scroll;padding-block:clamp(90px,22vw,150px)}
   }
   @media (max-width:560px){
     .cred .sep{display:none}.cred .wrap{flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:14px;text-align:left}
@@ -193,7 +194,6 @@
   <a href="../../public/about/" class="active">About</a>
   <a href="../../public/media/">Library</a>
   <a href="../../public/contact/">Contact</a>
-  <a href="../../index.html#newsletter" class="nav-cta">Join the Journey</a>
 </div>
 
 <!-- HERO -->
@@ -300,9 +300,9 @@
   <div class="wrap foot">
     <a class="brand" href="../../index.html"><img src="../../assets/img/logo-cropped-2.png" alt="Dave Rossi Global" class="footer-logo" /></a>
     <nav class="foot-links">
-      <a href="../../public/meet-dave/">Meet Dave</a>
-      <a href="../../public/press/">Press</a>
-      <a href="../../public/events/">Events</a>
+      <a href="../../index.html">Home</a>
+      <a href="../../public/about/">About</a>
+      <a href="../../public/media/">Library</a>
       <a href="../../public/contact/">Contact</a>
     </nav>
     <div class="socials">
