@@ -181,10 +181,13 @@
   @media (max-width:760px){
     html{scroll-snap-type:none}
     .snap{min-height:0}
-    /* HERO (mobile): no parallax so Dave's photo shows; face clear at top, headline pushed to the bottom edge; drop the paragraph */
-    .hero{background:linear-gradient(180deg, rgba(12,12,13,.10) 0%, rgba(12,12,13,.28) 40%, rgba(12,12,13,.72) 76%, rgba(12,12,13,.93) 100%), #14150F url("assets/images/home/slider_Main_New2.jpg?v=3") right top/cover no-repeat;background-attachment:scroll;align-items:flex-end;padding-top:96px;padding-bottom:clamp(40px,11vw,80px)}
+    /* HERO (mobile): Dave peeks out on the right, text on the left, no parallax, headline pushed to the bottom */
+    .hero{background:linear-gradient(90deg, rgba(12,12,13,.93) 0%, rgba(12,12,13,.8) 34%, rgba(12,12,13,.46) 62%, rgba(12,12,13,.12) 100%), #14150F url("assets/images/home/slider_Main_New2.jpg?v=3") 74% top/cover no-repeat;background-attachment:scroll;align-items:flex-end;padding-top:96px;padding-bottom:clamp(22px,6vw,44px)}
     .hero-inner{max-width:none}
     .hero p{display:none}
+    .hero .ulink{display:none}
+    .hero h1{font-size:1.62rem;line-height:1.45}
+    .hero .omega{font-size:1.72rem;margin-top:.15em}
     /* BOOKS (mobile): centred intro, books stacked underneath */
     .books-grid{text-align:center}
     .books-intro .ulink{margin-left:auto;margin-right:auto}
