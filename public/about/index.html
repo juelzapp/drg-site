@@ -96,10 +96,10 @@
   .story-body p:last-child{margin-bottom:0}
 
   /* QUOTE — parallax image behind, taller band */
-  .quote-band{position:relative;color:var(--paper);text-align:center;
-    background:linear-gradient(90deg, rgba(12,12,13,.84) 0%, rgba(12,12,13,.68) 44%, rgba(12,12,13,.42) 72%, rgba(12,12,13,.3) 100%), url("../../assets/images/about/paralax.jpg") right center/cover no-repeat scroll;
-    padding-block:clamp(120px,18vw,220px)}
-  .quote-band .wrap{max-width:860px;position:relative;z-index:1}
+  .quote-band{position:relative;overflow:hidden;color:var(--paper);text-align:center;background:var(--dark);padding-block:clamp(120px,18vw,220px)}
+  .quote-band .px-layer{position:absolute;left:0;right:0;top:-35%;height:170%;z-index:0;background:url("../../assets/images/about/paralax.jpg") right center/cover no-repeat;will-change:transform}
+  .quote-band::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg, rgba(12,12,13,.84) 0%, rgba(12,12,13,.68) 44%, rgba(12,12,13,.42) 72%, rgba(12,12,13,.3) 100%)}
+  .quote-band .wrap{max-width:860px;margin:0 auto;position:relative;z-index:2}
   .quote-band blockquote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.28}
   .quote-band cite{display:block;margin-top:22px;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
 
@@ -240,6 +240,7 @@
 
 <!-- QUOTE -->
 <section class="band quote-band">
+  <div class="px-layer" aria-hidden="true"></div>
   <div class="wrap">
     <blockquote>&ldquo;You are not broken,<br />you are buried.&rdquo;</blockquote>
     <cite>Dave Rossi</cite>
@@ -321,16 +322,16 @@
 </script>
 <script>
   (function () {
-    var els = [].slice.call(document.querySelectorAll('.quote-band, .contact-hero'));
-    if (!els.length || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
-    var AMP = 48, ticking = false;
+    var layers = [].slice.call(document.querySelectorAll('.px-layer'));
+    if (!layers.length || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    var SPEED = 0.28, ticking = false;
     function update() {
       var vh = window.innerHeight;
-      for (var i = 0; i < els.length; i++) {
-        var el = els[i], r = el.getBoundingClientRect();
-        if (r.bottom < -100 || r.top > vh + 100) continue;
-        var off = (((r.top + r.height / 2) - vh / 2) / vh) * -AMP;
-        el.style.backgroundPositionY = 'calc(50% + ' + off.toFixed(1) + 'px)';
+      for (var i = 0; i < layers.length; i++) {
+        var l = layers[i], sec = l.parentElement, r = sec.getBoundingClientRect();
+        if (r.bottom < -50 || r.top > vh + 50) continue;
+        var shift = (vh / 2 - (r.top + r.height / 2)) * SPEED;
+        l.style.transform = 'translate3d(0,' + shift.toFixed(1) + 'px,0)';
       }
       ticking = false;
     }
